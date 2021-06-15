@@ -116,25 +116,8 @@ self.addEventListener("activate", (event: any) => {
 //listen for requests
 self.addEventListener("fetch", (event: any) => {
   event.respondWith(
-    caches.open(event.request.url).then(function (cache) {
-      return caches.match(event.request).then((response) => {
-        if (navigator.onLine) {
-          return fetch(event.request).then(function (response) {
-            if (event.request.method == "GET") {
-              cache.put(event.request, response.clone());
-            }
-            return response;
-          });
-        } else { // when network is offline
-          if (response) {
-            return response;
-          } else {
-            return fetch(event.request).catch(() =>
-              caches.match("offline.html")
-            );
-          }
-        }
-      });
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
     })
   );
 });
