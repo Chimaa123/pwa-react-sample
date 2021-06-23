@@ -1,8 +1,10 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { useStatus } from "./registrationStatus";
 
 function App() {
+  const status = useStatus();
   return (
     <div className="App">
       <header className="App-header">
@@ -16,7 +18,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React {status}
         </a>
       </header>
     </div>
