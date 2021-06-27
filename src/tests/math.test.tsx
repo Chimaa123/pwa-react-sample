@@ -12,6 +12,6 @@ describe("divide function test", () => {
   });
 
   test("divide(4,0) to be null", () => {
-    expect(divide(4, 1)).toBeNull();
+    expect(divide(4, 0)).toBeNull();
   });
 });
