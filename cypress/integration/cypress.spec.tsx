@@ -18,4 +18,8 @@ it("renders app link", () => {
 it("renders user login button", () => {
   cy.get("button")
       .contains("load data").click();
+  cy.wait(5000)
+
+  cy.get("p.name")
+      .contains("My name is");
 });
