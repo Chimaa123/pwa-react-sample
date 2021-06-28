@@ -3,20 +3,21 @@ import { getData } from "./api/user.api";
 
 function Children() {
   const [data, setData] = useState("");
-  useEffect(() => {
-    const load = async () => {
-      const d = await getData();
+
+  const handleLoad = async () => {
+    getData().then((d) => {
       console.log("setData", d);
       setData(d);
-    };
-
-    load();
-  }, []);
+    });
+  };
 
   return (
-    <div className="App">
+    <div className="children">
       <p>I am children</p>
-      {data && <p>My name is {data}</p>}
+      <button className={"btn"} onClick={handleLoad}>
+        load data
+      </button>
+      {data && <p className={"name"}>My name is {data}</p>}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { mount } from "enzyme";
+import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
@@ -18,14 +18,19 @@ describe("App", () => {
     render(<App />);
 
     expect(screen.queryByText(/My name is/)).toBeNull();
-
-    // screen.debug();
-
-    expect(await screen.findByText(/My name is /)).toBeInTheDocument();
-
-    // screen.debug();
+    //
+    // // screen.debug();
+    //
+    // expect(await screen.findByText(/My name is/)).toBeInTheDocument();
+    //
+    // // screen.debug();
   });
 });
+
+// it("renders learn react link with cypress", () => {
+//   mount(<App />);
+//   cy.get("a").contains("Learn React");
+// });
 
 // describe("<App/>", () => {
 //   it("Renders without crashing", () => {
