@@ -10,7 +10,7 @@ it("have logo", () => {
 });
 
 it("renders app link", () => {
-  const value = "learn reacts";
+  const value = "learn react";
   cy.get('div.App').contains(value);
 });
 
